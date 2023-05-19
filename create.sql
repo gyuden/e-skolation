@@ -87,7 +87,7 @@ CREATE TABLE Takes (
 	studentID TEXT,
 	programID TEXT,
 	PRIMARY KEY (studentID, programID),
-FOREIGN KEY (studentID) REFERENCES Student(studentID),
+	FOREIGN KEY (studentID) REFERENCES Student(studentID),
 	FOREIGN KEY (programID) REFERENCES Program(programID)
 );
 
@@ -95,14 +95,14 @@ CREATE TABLE Handles (
 	facultyID INTEGER,
 	programID TEXT,
 	PRIMARY KEY (facultyID, programID),
-FOREIGN KEY (facultyID) REFERENCES Faculty(facultytID),
+	FOREIGN KEY (facultyID) REFERENCES Faculty(facultytID),
 	FOREIGN KEY (programID) REFERENCES Program(programID)
 );
 
 CREATE TABLE Has (
-  studentID TEXT,
-  portfolioID INTEGER,
-  PRIMARY KEY (studentID, portfolioID),
-  FOREIGN KEY (studentID) REFERENCES Student(studentID),
-  FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
+	studentID TEXT,
+	portfolioID INTEGER,
+	PRIMARY KEY (studentID, portfolioID),
+	FOREIGN KEY (studentID) REFERENCES Student(studentID),
+	FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
 );
