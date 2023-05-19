@@ -1,34 +1,30 @@
 CREATE TABLE Student (
-studentID TEXT,
-portfolioID INTEGER, 
-firstName TEXT,
-middleName TEXT,
-lastName TEXT,
-yearEnrolled YEAR,
-PRIMARY KEY (studentID, portfolioID),
-FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
+	studentID TEXT,
+	portfolioID INTEGER, 
+	firstName TEXT,
+	middleName TEXT,
+	lastName TEXT,
+	yearEnrolled YEAR,
+	PRIMARY KEY (studentID, portfolioID),
+	FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
 );
 
 CREATE TABLE Portfolio (
-portfolioID INTEGER,
-studentID TEXT,
-portfolioName TEXT,
-portfolioType TEXT,
-yearCreated YEAR,
-PRIMARY KEY (portfolioID, studentID),
-FOREIGN KEY (studentID) REFERENCES Student(studentID)
+	portfolioID INTEGER,
+	portfolioName TEXT,
+	portfolioType TEXT,
+	yearCreated YEAR,
+	PRIMARY KEY (portfolioID)
 );
 
 CREATE TABLE Posts (
-portfolioID INTEGER,
-postID INTEGER,
+	postID INTEGER,
 	postTitle TEXT,
 	postDate DATE,
 	postType TEXT,
 	views SERIAL,
 	comments INTEGER,
-	PRIMARY KEY (portfolioID, postID),
-FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
+	PRIMARY KEY (postID)
 );
 
 CREATE TABLE Contains (
@@ -40,17 +36,17 @@ CREATE TABLE Contains (
 );
 
 CREATE TABLE Program (
-programID TEXT,
-programName TEXT,
-PRIMARY KEY (programID)
+	programID TEXT,
+	programName TEXT,
+	PRIMARY KEY (programID)
 );
 
 CREATE TABLE Faculty (
-facultyID INTEGER,
-firstName TEXT,
-middleName TEXT,
-lastName TEXT,
-PRIMARY KEY (facultyID)
+	facultyID INTEGER,
+	firstName TEXT,
+	middleName TEXT,
+	lastName TEXT,
+	PRIMARY KEY (facultyID)
 );
 
 CREATE TABLE TechAdmin (
@@ -70,11 +66,11 @@ CREATE TABLE Visitor (
 
 CREATE TABLE Monitors (
 	portfolioID INTEGER,
-adminID INTEGER,
-remarks TEXT,
-PRIMARY KEY (portfolioID, adminID),
-FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID),
-FOREIGN KEY (adminID) REFERENCES Portfolio(portfolioID)
+	adminID INTEGER,
+	remarks TEXT,
+	PRIMARY KEY (portfolioID, adminID),
+	FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID),
+	FOREIGN KEY (adminID) REFERENCES Portfolio(portfolioID)
 );
 
 CREATE TABLE Views (
@@ -82,9 +78,9 @@ CREATE TABLE Views (
 	portfolioID INTEGER,
 	remarks TEXT,
 	PRIMARY KEY (visitorID, portfolioID),
-FOREIGN KEY (visitorID) REFERENCES Visitor(visitorID),
-FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID),
-UNIQUE (visitorID)
+	FOREIGN KEY (visitorID) REFERENCES Visitor(visitorID),
+	FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID),
+	UNIQUE (visitorID)
 );
 
 CREATE TABLE Takes (
@@ -101,4 +97,12 @@ CREATE TABLE Handles (
 	PRIMARY KEY (facultyID, programID),
 FOREIGN KEY (facultyID) REFERENCES Faculty(facultytID),
 	FOREIGN KEY (programID) REFERENCES Program(programID)
+);
+
+CREATE TABLE Has (
+  studentID TEXT,
+  portfolioID INTEGER,
+  PRIMARY KEY (studentID, portfolioID),
+  FOREIGN KEY (studentID) REFERENCES Student(studentID),
+  FOREIGN KEY (portfolioID) REFERENCES Portfolio(portfolioID)
 );
