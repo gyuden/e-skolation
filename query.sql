@@ -4,7 +4,7 @@ FROM Student s
 INNER JOIN Has h ON s.studentID = h.studentID
 INNER JOIN Portfolio p ON h.portfolioID = p.portfolioID;
 
-/* Retrieve details of portfolio(s) created on 2016
+/* Retrieve details of portfolio(s) created on 2016 */
 SELECT *
 FROM Portfolio WHERE yearCreated=2016;
 
