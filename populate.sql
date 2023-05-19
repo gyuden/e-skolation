@@ -18,13 +18,13 @@ VALUES
 (6, 'Silver Rose', 'Videography', 2018),
 (7, 'PANORAMA', 'Graphic Design', 2021);
 
-INSERT INTO Posts (portfolioID, postID, postTitle, postDate, postType, views, comments)
+INSERT INTO Posts (postID, postTitle, postDate, postType, views, comments)
 VALUES
-(1, 0001, 'Set Me Free', '2016-10-10', 'Photograph', 779, 'So cool!'),
-(3, 0002, 'Winter Bear', '2016-12-30', 'Photograph', 905, NULL),
-(2, 0003, 'G.C.F. in Saipan', '2017-07-09', 'Video', 1343, 'I love the colours!'),
-(2, 0004, 'G.C.F. in Helsinki', '2017-09-18', 'Video', 613, 'Very heartwarming.'),
-(4, 0005, 'Indigos', '2022-03-07', 'Photograph', 1018, NULL);
+(0001, 'Set Me Free', '2016-10-10', 'Photograph', 779, 'So cool!'),
+(0002, 'Winter Bear', '2016-12-30', 'Photograph', 905, NULL),
+(0003, 'G.C.F. in Saipan', '2017-07-09', 'Video', 1343, 'I love the colours!'),
+(0004, 'G.C.F. in Helsinki', '2017-09-18', 'Video', 613, 'Very heartwarming.'),
+(0005, 'Indigos', '2022-03-07', 'Photograph', 1018, NULL);
 
 INSERT INTO Program (programID, programName)
 VALUES
@@ -57,15 +57,47 @@ VALUES
 
 INSERT INTO TechAdmin (adminID, firstName, middleName, lastName, techRole)
 VALUES
-(940218, 'Hoseok', NULL, 'Jung', 'User interface design'),
+(940218, 'Hoseok', NULL, 'Jung', 'UI/UX Designer'),
 (950525, 'Danny', NULL, 'Shin', 'Developer'),
-(960815, 'Wonsang', NULL, 'Cho', '__'),
+(960815, 'Wonsang', NULL, 'Cho', 'Security Analyst'),
 (920613, 'Yechan', NULL, 'Shin', 'Admin');
 
-INSERT INTO Visitors (visitorID, portfolioID, remarks)
+INSERT INTO Views (visitorID, portfolioID, remarks)
 VALUES
 (1000, 1, NULL),
 (1001, 5, NULL),
-(1002, 2, 'I love the videos so much!!'),
+(1002, 2, 'I love the videos so much!'),
 (1003, 1, 'Was indeed lucky to see this!'),
 (1004, 4, NULL);
+
+INSERT INTO Visitor (visitorID)
+VALUES
+(1000),
+(1001),
+(1002),
+(1003),
+(1004);
+
+INSERT INTO Has (studentID, portfolioID)
+VALUES
+('2013-06137', 1),
+('2013-06136', 2),
+('2013-06135', 3),
+('2020-30633', 4),
+('2020-30536', 5),
+('2020-10139', 6),
+('2020-05084', 7);
+
+INSERT INTO Monitors (portfolioID, adminID, remarks)
+VALUES
+(5, 920613, 'Deleted inappropriate comments on specific posts.'),
+(2, 940218, 'Assisted in fixing faulty interactive elements of the portfolio.'),
+(5, 960815, 'Checked any malicious activities from visitors.');
+
+INSERT INTO Contains (portfolioID, postID)
+VALUES
+(1, 0001),
+(3, 0002),
+(2, 0003),
+(2, 0004),
+(4, 0005);
