@@ -1,3 +1,12 @@
+/* MMS 144 – Multimedia DBMS
+by Group Mikrokosmos
+
+Members:
+Bacud, Francelle Joanne
+Del Rosario, Denica Eireen
+Tuason, Myles Lorraine
+*/
+
 /* Retrieve the masterlist of student and portfolio data */
 SELECT s.*, p.*
 FROM Student s
@@ -52,8 +61,8 @@ SELECT *
 FROM TechAdmin;
 
 /* Retrieve TechAdmin monitor troubleshoots on all portfolios */
-SELECT p.portfolioName, m.remarks, t.firstName, t.techrole 
-FROM Monitors m 
+SELECT p.portfolioName, m.remarks, t.firstName, t.techrole
+FROM Monitors m
 INNER JOIN Portfolio p ON m.portfolioid=p.portfolioid
 INNER JOIN TechAdmin t ON m.adminID=t.adminID;
 
@@ -61,5 +70,5 @@ INNER JOIN TechAdmin t ON m.adminID=t.adminID;
 SELECT s.studentid, s.lastname, p.portfolioname, p.yearcreated
 FROM Student s
 INNER JOIN Has h ON s.studentID = h.studentID
-INNER JOIN Portfolio p ON h.portfolioID = p.portfolioID 
+INNER JOIN Portfolio p ON h.portfolioID = p.portfolioID
 ORDER BY p.yearCreated;

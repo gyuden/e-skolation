@@ -1,6 +1,15 @@
+/* MMS 144 – Multimedia DBMS
+by Group Mikrokosmos
+
+Members:
+Bacud, Francelle Joanne
+Del Rosario, Denica Eireen
+Tuason, Myles Lorraine
+*/
+
 CREATE TABLE Student (
 	studentID TEXT,
-	portfolioID INTEGER, 
+	portfolioID INTEGER,
 	firstName TEXT,
 	middleName TEXT,
 	lastName TEXT,

@@ -1,3 +1,12 @@
+/* MMS 144 – Multimedia DBMS
+by Group Mikrokosmos
+
+Members:
+Bacud, Francelle Joanne
+Del Rosario, Denica Eireen
+Tuason, Myles Lorraine
+*/
+
 INSERT INTO Student (studentID, firstName, middleName, lastName, yearEnrolled)
 VALUES
 ('2013-06137', 'Jimin', NULL, 'Park', 2013),
